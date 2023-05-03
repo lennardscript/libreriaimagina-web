@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { getAllBooks } from "../api/books.api.js";
+import { getAllBooks } from "../api/books.api";
+import { BookCard } from "./BookCard";
 
 export function BooksList() {
   /* Se ejecuta apenas se carga la página para llamar todos los datos de los libros */
-  const [books, setBooks] = useState([])
+  const [books, setBooks] = useState([]);
 
   useEffect(() => {
     async function loadBooks() {
@@ -13,5 +14,11 @@ export function BooksList() {
     loadBooks();
   }, []);
 
-  return <div>BooksList</div>;
+  return (
+    <div>
+      {books.map((book) => (
+        <BookCard key={book.id} book={book} />
+      ))}
+    </div>
+  );
 }

@@ -62,11 +62,12 @@ export function HomePage() {
                   <BiBookmarkHeart />
                 </button>
 
-                <img
+                {/* <img
                   src="/img/libro-aristoteles.png"
                   alt=""
                   className="h-64 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72"
-                />
+                /> */}
+                </a>
 
                 <div className="relative border border-gray-100 bg-white p-6">
                   <span className="whitespace-nowrap bg-emerald-400 px-3 py-1.5 text-xs font-medium">
@@ -89,7 +90,7 @@ export function HomePage() {
                     </span>
                   </a>
                 </div>
-              </a>
+              
             </li>
 
             <li>
@@ -101,11 +102,12 @@ export function HomePage() {
                   <BiBookmarkHeart />
                 </button>
 
-                <img
+                {/* <img
                   src="/img/franzkafka.png"
                   alt=""
                   className="h-64 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72"
-                />
+                /> */}
+                </a>
 
                 <div className="relative border border-gray-100 bg-white p-6">
                   <span className="whitespace-nowrap bg-emerald-400 px-3 py-1.5 text-xs font-medium">
@@ -131,7 +133,7 @@ export function HomePage() {
                     </a>
                   </form>
                 </div>
-              </a>
+              
             </li>
 
             <li>
@@ -143,11 +145,12 @@ export function HomePage() {
                   <BiBookmarkHeart />
                 </button>
 
-                <img
+                {/* <img
                   src="/img/platon.png"
                   alt=""
                   className="h-64 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72"
-                />
+                /> */}
+                </a>
 
                 <div className="relative border border-gray-100 bg-white p-6">
                   <span className="whitespace-nowrap bg-emerald-400 px-3 py-1.5 text-xs font-medium">
@@ -173,7 +176,6 @@ export function HomePage() {
                     </a>
                   </form>
                 </div>
-              </a>
             </li>
           </ul>
         </div>

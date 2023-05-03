@@ -5,7 +5,7 @@ export function Footer() {
         <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
           <div className="sm:flex sm:items-center sm:justify-between">
             <div className="flex justify-center sm:justify-start">
-              <img className="h-8" src="/img/libros.png" alt="Logo" />
+              <img className="h-8" src="" alt="Logo" />
               <h3>Librería Imagina</h3>
             </div>
 
