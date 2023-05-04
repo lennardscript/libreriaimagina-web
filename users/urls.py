@@ -6,7 +6,7 @@ Rutas que puedes colocar
 
 path('put/', views.putUser'),
 path('image/', views.uploadImage),
-path('users/', views.getUsers),
+path('getUsers/', views.getUsers),
 
 """
 

@@ -66,9 +66,9 @@ def getSoloUser(request, pk):
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def getUsers(request):
-  users = User.objects.all()
-  serializer = UserSerializer(users, many=True)
-  return Response(serializer.data)
+    users = User.objects.all()
+    serializer = UserSerializer(users, many=True)
+    return Response(serializer.data)
 
 """
 
@@ -89,7 +89,7 @@ def putUser(request):
     #Actualizar contraseña
 
     if data['password'] != '':
-      user.password = make_password(data['password'])
+        user.password = make_password(data['password'])
     user.save()
 """
 
@@ -99,10 +99,10 @@ def putUser(request):
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def uploadImage(request):
-  data = request.data
-  user_id = data['user_id']
-  user = User.objects.get(id=user_id)
-  user.image = request.FILES.get('image')
-  user.save()
-  return Response('Imagen subida!')
+    data = request.data
+    user_id = data['user_id']
+    user = User.objects.get(id=user_id)
+    user.image = request.FILES.get('image')
+    user.save()
+    return Response('Imagen subida!')
 """

@@ -4,8 +4,7 @@ import { Link } from "react-router-dom";
 export function BookCard({ book }) {
   return (
     <>
-
-      <div className="lg:col-span-3">
+      <div>
         <Link to="/" className="group relative block overflow-hidden">
           <button className="absolute right-4 top-4 z-10 rounded-full bg-white p-1.5 text-gray-900 transition hover:text-gray-900/75">
             <BiBookmarkHeart className="h-4 w-4" />

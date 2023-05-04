@@ -15,10 +15,12 @@ export function BooksList() {
   }, []);
 
   return (
-    <div>
+    <>
+    <ul className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
       {books.map((book) => (
-        <BookCard key={book.id} book={book} />
+        <BookCard  key={book.id} book={book} />
       ))}
-    </div>
+    </ul>
+    </>
   );
 }
