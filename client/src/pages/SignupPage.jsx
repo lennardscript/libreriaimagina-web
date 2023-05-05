@@ -1,7 +1,43 @@
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Footer, Navbar } from "../components";
 import { Link } from "react-router-dom";
+import { register } from '../actions/userActions';
+import { useNavigate } from "react-router-dom";
 
 export function SignupPage() {
+
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [message, setMessage] = useState('');
+
+  const dispatch = useDispatch()
+
+  const userRegister = useSelector(state => state.userRegister);
+  const {error, loading, userInfo} = userRegister;
+
+  const navigate = useNavigate();
+  const path = '/';
+
+  useEffect(() => {
+      if (userInfo) {
+        navigate(path);
+      }
+  }, [userInfo]);
+
+  const submitHandler = (e) => {
+    e.preventDefault()
+
+    if (password !== confirmPassword) {
+      setMessage('Passwords must match!')
+    } else {
+      dispatch(register(username, email, password))
+    }
+  }
+  
+
   return (
     <>
       <Navbar />
@@ -49,7 +85,7 @@ export function SignupPage() {
                 </h2>
               </div>
 
-              <form action="post" className="mx-auto mb-0 max-w-md space-y-4">
+              <form method="POST" onSubmit={submitHandler} action="#" className="mx-auto mb-0 max-w-md space-y-4">
                 <div className="col-span-6 sm:col-span-3">
                   <div className="mx-auto max-w-lg text-center">
                     <h1 className="text-2xl font-bold sm:text-3xl underline decoration-red-500">
@@ -62,9 +98,12 @@ export function SignupPage() {
                   <br />
                   <div className="relative">
                     <input
+                      value={username}
+                      onChange={(e) => setUsername(e.target.value)}
                       type="text"
                       id="username"
                       name="username"
+                      required
                       placeholder="Nombre de usuario"
                       className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                     />
@@ -73,9 +112,12 @@ export function SignupPage() {
 
                   <div className="relative">
                     <input
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                       type="email"
                       id="email"
                       name="email"
+                      required
                       placeholder="Correo electrónico"
                       className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                     />
@@ -85,10 +127,28 @@ export function SignupPage() {
                   <div className="col-span-6 sm:col-span-3">
                     <div className="relative">
                       <input
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                         type="password"
                         id="password"
                         name="password"
                         placeholder="Contraseña"
+                        required
+                        className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                      />
+                    </div>
+                    <br />
+
+                    <div className="col-span-6 sm:col-span-3">
+                    <div className="relative">
+                      <input
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Confirmar contraseña"
+                        required
                         className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                       />
                     </div>
@@ -118,7 +178,7 @@ export function SignupPage() {
                         <div className="col-span-6 sm:flex sm:items-center sm:gap-4 p-5">
                           <a
                             className="group relative inline-block focus:outline-none focus:ring"
-                            href="/templates/user.html"
+                            href="/login"
                           >
                             <span className="absolute inset-0 translate-x-0 translate-y-0 bg-red-500 transition-transform group-hover:translate-y-1.5 group-hover:translate-x-1.5"></span>
 
@@ -129,6 +189,7 @@ export function SignupPage() {
                         </div>
                       </div>
                     </div>
+                  </div>
                   </div>
                 </div>
               </form>

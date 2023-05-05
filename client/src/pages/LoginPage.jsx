@@ -1,7 +1,34 @@
+import { useState, useEffect } from "react";
 import { Footer, Navbar } from "../components";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
+import { login } from '../actions/userActions';
 
 export function LoginPage() {
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const disptach = useDispatch();
+
+  const userLogin = useSelector(state => state.userLogin);
+  const {error, loading, userInfo} = userLogin;
+
+  const navigate = useNavigate();
+  const path = '/';
+
+  useEffect(() => {
+    if (userInfo) {
+      navigate(path);
+
+    }
+  }, [userInfo]);
+
+  const submitHandler = (e) => {
+    e.preventDefault()
+    disptach(login(email, password))
+  }
+
   return (
     <>
       <Navbar />
