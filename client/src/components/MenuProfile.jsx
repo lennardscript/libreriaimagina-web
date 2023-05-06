@@ -2,6 +2,8 @@ import { Menu, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 import { BiUserCircle } from "react-icons/bi";
 import { Link } from "react-router-dom"
+import { logout } from '../actions/userActions';
+import { useDispatch, useSelector } from "react-redux";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')

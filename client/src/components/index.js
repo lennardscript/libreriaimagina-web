@@ -1,3 +1,5 @@
 export * from './Navbar'
 export * from './Footer'
 export * from './MenuProfile'
+export * from './Messages'
+export * from './Loader'

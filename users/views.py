@@ -30,17 +30,16 @@ class MyTokenObtainPairView(TokenObtainPairView):
 @api_view(['POST'])
 def register(request):
     data = request.data
-
     try:
         user = User.objects.create(
-            username = data['username'],
-            email = data['email'],
-            password = make_password(data['password'])
+            username=data['username'],
+            email=data['email'],
+            password=make_password(data['password'])
         )
         serializer = UserSerializerWithToken(user, many=False)
         return Response(serializer.data)
     except:
-        message = {'detail': 'Something went wrong'}
+        message = {'detail': 'Somthing went wrong'}
         return Response(message, status=status.HTTP_400_BAD_REQUEST)
 
 # Obtener los datos del usuario que actualmente está autenticado
@@ -71,6 +70,13 @@ def getUsers(request):
     return Response(serializer.data)
 
 """
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def getUsers(request):
+    users = User.objects.all()
+    serializer = UserSerializer(users, many=True)
+    return Response(serializer.data)
 
 # Actualizar los datos del usuario
 """

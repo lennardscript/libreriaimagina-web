@@ -15,6 +15,7 @@ urlpatterns = [
     path('register/', views.register),
     path('userProfile/', views.getUserProfile),
     path('soloUser/<int:pk>/', views.getSoloUser),
+    path('getUsers/', views.getUsers),
 ]
 
 
