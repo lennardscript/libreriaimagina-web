@@ -15,7 +15,7 @@ SECRET_KEY = 'django-insecure-n=q1j^u1%8r*+&!$4*&8dz(*me235x4^gz8f#*%+#vv*)8e$+$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -73,14 +73,13 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 """
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.oracle",
-        "NAME": config('DB_NAME'),
-        'USER': config('DB_USER'),
-        'PASSWORD': config('DB_PASSWORD'),
-        'HOST': config('DB_HOST'),
-        'PORT': config('DB_PORT'),
-        
+    'default': {
+        'ENGINE': 'django.db.backends.oracle',
+        'NAME': 'nombre_de_la_base_de_datos',
+        'USER': 'nombre_de_usuario',
+        'PASSWORD': 'contraseña',
+        'HOST': 'nombre_del_host',
+        'PORT': 'puerto',
     }
 }
 """
@@ -141,9 +140,13 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Cors Authorization
-CORS_ALLOWED_ORIGINS = ["http://localhost:5173"]
+CORS_ALLOWED_ORIGINS = ["http://localhost:5173", "https://api-alphilia.onrender.com"]
 
-CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_ALL_ORIGINS = True
+
+CORS_ORIGIN_WHITELIST = (
+    'https://api-alphilia.onrender.com'
+)
 
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',

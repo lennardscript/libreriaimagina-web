@@ -17,7 +17,7 @@ export function SignupPage() {
   const { error, loading, userInfo } = userRegister;
 
   const navigate = useNavigate();
-  const path = "/";
+  const path = "/userauth";
 
   useEffect(() => {
     if (userInfo) {

@@ -1,8 +1,8 @@
-import { BiSearch, BiCart } from "react-icons/bi";
+import { BiCart, BiSearch } from "react-icons/bi";
 import { Link } from "react-router-dom";
-import { MenuProfile } from "./MenuProfile";
+import { MenuUser } from "./MenuUser";
 
-export function Navbar() {
+export function NavbarUser() {
   return (
     <>
       <header className="border-b border-gray-100">
@@ -13,6 +13,7 @@ export function Navbar() {
               <span className="sr-only">Logo</span>
               <span className="inline-block h-10 w-32 rounded-lg bg-gray-200"></span>
             </Link>
+
           </div>
 
           <div className="flex flex-1 items-center justify-end gap-8">
@@ -27,7 +28,7 @@ export function Navbar() {
 
             <div className="flex items-center">
               <div className="flex items-center divide-x divide-gray-100 border-x border-gray-100">
-                <span className="hidden sm:block">
+              <span className="hidden sm:block">
                   <a
                     href="/"
                     className="block border-b-4 border-transparent p-6 hover:border-red-700"
@@ -35,8 +36,8 @@ export function Navbar() {
                     <BiCart className="h-4 w-4" />
                   </a>
                 </span>
-                <MenuProfile />
-
+                  <MenuUser />
+                
                 <span className="hidden sm:block">
                   <a
                     href="/search"

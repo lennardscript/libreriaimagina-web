@@ -24,4 +24,5 @@ dist-ssr
 *.sw?
 
 # Django
-media
+db.sqlite3
+Pipfile

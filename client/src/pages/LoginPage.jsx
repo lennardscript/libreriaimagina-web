@@ -14,7 +14,7 @@ export function LoginPage() {
   const { error, loading, userInfo } = userLogin;
 
   const navigate = useNavigate();
-  const path = "/";
+  const path = "/userauth";
 
   useEffect(() => {
     if (userInfo) {
