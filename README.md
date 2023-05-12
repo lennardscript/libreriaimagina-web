@@ -17,7 +17,7 @@
   </ul>
 </p>
 
-## Configuración de Django, su Backend
+## Configuración de Django, su Backend 
 
 Las aplicaciones en Python usualmente hacen uso de paquetes y módulos que no forman parte de la librería estándar. Las aplicaciones a veces necesitan una versión específica de una librería, debido a que dicha aplicación requiere que un bug particular haya sido solucionado o bien la aplicación ha sido escrita usando una versión obsoleta de la interfaz de la librería.
 
@@ -43,6 +43,8 @@ La URL de la API es la siguiente:
 https://api-alphilia.onrender.com
 ```
 
+Si quieren ver el codigo fuente de la API, se encuentra en este repositorio: **[API_Alphilia](https://github.com/lennardscript/API_Alphilia)**
+
 ## Activar el modo virtual
 
 Para utilizar todos sus modulos integrados hay que activar su modo virtual para así podamos sacar el mayor rendimiento y no tener problemas o conflicto con los modulos
@@ -55,14 +57,12 @@ pipenv shell
 ## Instalación de nuevos modulos
 
 Tal vez uno querra instalar nuevos modulos e integrarlos en el archivo ``Pipfile`` que nos genera Pipenv, normalmente la instalación de modulo lo hacemos con el 
-gestor de paquetes que trae por defecto Python: ``pip``. En este caso no se utiliza, si no que es reemplazado con 
-``pipenv install <name_modulo>``, así el modulo o paquete de Python se integre en su propia maquina virtual en modo de desarrollo y no tendrá inconveniente con el sistema operativo, Python o de cualquier 
-otras circunstancias que se puede presentar.
+gestor de paquetes que trae por defecto Python: ``pip``. En este caso no se utiliza, si no que es reemplazado con ``pipenv install <name_modulo>``, así el modulo o paquete de Python se integre en su propia maquina virtual en modo de desarrollo y no tendrá inconveniente con el sistema operativo, Python o de cualquier otras circunstancias que se puede presentar.
 
 ## Levantar servidor de Django
 
 Django posee su propio servidor ligero en el que podemos desarrollar rápidamente sin tener que lidiar con otros servidores en modo producción. El servidor en sí
-recarga automáticamente el código de Python por cada petición según sea necesario. **No es necesario reiniciar el servidor de Django para que los cambios surtan
+recarga automáticamente el código de Python por cada petición según sea necesario. **No es necesario reiniciar el servidor de Django para que los cambios surgan
 efecto**, en algunas situaciones dadas por el desarrollo, sí es necesario reiniciar el servidor, por ejemplo agregar una funcionalidad de añadir archivos.
 
 Para levantar el servidor de Django, se debe introducir el siguiente comando por consola (dentro del directorio en donde está el proyecto Django)
