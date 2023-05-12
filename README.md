@@ -1,5 +1,13 @@
-# Libreria Imagina
-<p class=center>
+# Libreria Imagina | Integración de plataformas ASY_001
+<p class='center'>
+  Profesor:
+  <ul>
+    <li>
+      Pavel Nicola Morales Bustamante
+    </li>
+  </ul>
+</p>
+<p class='center'>
   Integrantes:
   <ul>
     <li>Leandro Burgos</li>
@@ -15,15 +23,25 @@ Las aplicaciones en Python usualmente hacen uso de paquetes y módulos que no fo
 
 Esto significa que tal vez no sea posible para una instalación de Python cumplir los requerimientos de todas las aplicaciones. Si la aplicación A necesita la versión 1.0 de un módulo particular y la aplicación B necesita la versión 2.0, entonces los requerimientos entran en conflicto e instalar la versión 1.0 o 2.0 dejará una de las aplicaciones sin funcionar.
 
-Para no tener este problemática, Django funciona de manera virtualizada, es decir, se maneja en entornos virtuales, en este caso hay que instalar **[Pipenv](https://pipenv-es.readthedocs.io/es/latest/index.html)**
+Para no presentar esta problemática, Django funciona de manera virtualizada, es decir, se maneja en entornos virtuales, en este caso hay que instalar **[Pipenv](https://pipenv-es.readthedocs.io/es/latest/index.html)**
 Se puede instalar con el siguiente comando:
 
 ```
 pip install pipenv
 ```
 
-El propio proyecto en Django tiene todos sus modulos instalados, así que no hay instalarlos nuevamente ya que todo viene integrado (en modo de desarrollo) en su archivo
+El propio proyecto en Django tiene todos sus modulos instalados, así que no hay que instalarlos nuevamente ya que todo viene integrado (en modo de desarrollo) en su archivo
 ``Pipfile``
+
+## API de Alphilia
+
+Como el caso pide como requerimiento una API independiente del proyecto, en nuestro caso para acelerar el desarrollo y no tener muchas complicaciones, la API de Alphilia se ha subido a un hosting gratuito y desplegado que nos provee **[Render](https://render.com/)** con su base de datos que también nos da gratuitamente, la base de datos en la nube que se ha configurado es PostgreSQL.
+
+La URL de la API es la siguiente:
+
+```
+https://api-alphilia.onrender.com
+```
 
 ## Activar el modo virtual
 
@@ -73,7 +91,7 @@ de crear un entorno de desarrollo muchisímo más rápido y configurado al momen
 
 ## Instalar o inyectar dependencias en Node
 
-Al momento de clonar un repositorio de GitHub, es necesario instalar sus respectivas dependencias utilizando el siguiente comando:
+Al momento de clonar un repositorio de GitHub, es necesario instalar sus respectivas dependencias, se utilizando el siguiente comando:
 
 ```
 pnpm install
