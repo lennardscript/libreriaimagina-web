@@ -35,15 +35,9 @@ El propio proyecto en Django tiene todos sus modulos instalados, así que no hay
 
 ## API de Alphilia
 
-Como el caso pide como requerimiento una API independiente del proyecto, en nuestro caso para acelerar el desarrollo y no tener muchas complicaciones, la API de Alphilia se ha subido a un hosting gratuito y desplegado que nos provee **[Render](https://render.com/)** con su base de datos que también nos da gratuitamente, la base de datos en la nube que se ha configurado es PostgreSQL.
+Como el caso pide como requerimiento una API independiente del proyecto, en nuestro caso para acelerar el desarrollo y no tener muchas complicaciones, la API de Alphilia se ha **[dockerizado](https://www.docker.com/)** para asi facilitar el despliegue de ella.
 
-La URL de la API es la siguiente:
-
-```
-https://api-alphilia.onrender.com
-```
-
-Si quieren ver el codigo fuente de la API, se encuentra en este repositorio: **[API_Alphilia](https://github.com/lennardscript/API_Alphilia)**
+El **[repositorio](https://github.com/lennardscript/api-alphilia)** de la API se encuentra disponible.
 
 ## Activar el modo virtual
 
