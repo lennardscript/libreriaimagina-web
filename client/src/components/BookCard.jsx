@@ -2,10 +2,11 @@ import { BiBookmarkHeart } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
 export function BookCard({ book }) {
+
   return (
     <>
       <div>
-        <Link to='/' className="group relative block overflow-hidden">
+        <Link to={`/book/${book.id}`} className="group relative block overflow-hidden">
           <button className="absolute right-4 top-4 z-10 rounded-full bg-white p-1.5 text-gray-900 transition hover:text-gray-900/75">
             <BiBookmarkHeart className="h-4 w-4" />
           </button>
@@ -25,20 +26,15 @@ export function BookCard({ book }) {
             {book.title}
           </h3>
 
-          <p className="mt-1.5 text-sm text-gray-700">${book.price}</p>
-
-          <form className="mt-4">
-            <Link
-              className="group relative inline-block focus:outline-none focus:ring"
-              href="/templates/cart.html"
-            >
+          <p className="mt-1.5 text-sm text-gray-700 p-1">${book.price}</p>
+            <button
+              className="group relative inline-block focus:outline-none focus:ring">
               <span className="absolute inset-0 translate-x-0 translate-y-0 bg-red-500 transition-transform group-hover:translate-y-1.5 group-hover:translate-x-1.5"></span>
 
               <span className="relative inline-block border-2 border-current px-8 py-3 text-sm font-bold uppercase tracking-widest">
                 Añadir al carrito
               </span>
-            </Link>
-          </form>
+            </button>
         </div>
       </div>
     </>

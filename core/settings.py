@@ -33,7 +33,8 @@ INSTALLED_APPS = [
     'coreapi',
 
     'libreria',
-    'users'
+    'users',
+    'shopping_cart',
 ]
 
 MIDDLEWARE = [
@@ -147,6 +148,11 @@ CORS_ALLOW_ALL_ORIGINS = True
 CORS_ORIGIN_WHITELIST = (
     'https://api-alphilia.onrender.com'
 )
+
+# Cookies settings
+CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_DOMAIN = 'https://api-alphilia.onrender.com'
+SESSION_COOKIE_DOMAIN = 'https://api-alphilia.onrender.com'
 
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',

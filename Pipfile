@@ -10,6 +10,7 @@ django-cors-headers = "*"
 coreapi = "*"
 pillow = "*"
 djangorestframework-simplejwt = "*"
+cx-oracle = "*"
 
 [dev-packages]
 

@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+/* import { useEffect, useState } from "react"; */
 /* import { getAllBooks } from "../api/books.api"; */
 import { BookCard } from "./BookCard";
 import { fetchData } from "../api/fetchData";
 import { Suspense } from "react";
 
-const apiData = fetchData('https://api-alphilia.onrender.com/books')
+/* https://api-alphilia.onrender.com/books */
+
+const apiData = fetchData('http://127.0.0.1:5000/books')
 
 export function BooksList() {
 
@@ -25,8 +27,8 @@ export function BooksList() {
     <>
     <Suspense fallback={<div>Loading...</div>}>
     <ul className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-      {data?.map((book) => (
-        <BookCard  key={book.id} book={book} />
+      {data?.map((book, bookId) => (
+        <BookCard key={bookId} book={book} />
       ))}
     </ul>
     </Suspense>

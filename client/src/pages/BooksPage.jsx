@@ -1,5 +1,4 @@
-import { Footer, Navbar } from "../components";
-import { BooksList } from "../components/BooksList";
+import { Footer, Navbar, BooksList } from "../components";
 export function BooksPage() {
   return (
     <>
@@ -19,7 +18,7 @@ export function BooksPage() {
           <div className="mt-8 sm:flex sm:items-center sm:justify-between">
             <div className="block sm:hidden">
               <button className="flex cursor-pointer items-center gap-2 border-b border-gray-400 pb-1 text-gray-900 transition hover:border-gray-600">
-                <span className="text-sm font-medium"> Filters & Sorting </span>
+                <span className="text-sm font-medium"> Filtros y Clasificación </span>
 
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -42,7 +41,7 @@ export function BooksPage() {
               <div className="relative">
                 <details className="group [&_summary::-webkit-details-marker]:hidden">
                   <summary className="flex cursor-pointer items-center gap-2 border-b border-gray-400 pb-1 text-gray-900 transition hover:border-gray-600">
-                    <span className="text-sm font-medium"> Availability </span>
+                    <span className="text-sm font-medium"> Disponibilidad </span>
 
                     <span className="transition group-open:-rotate-180">
                       <svg
@@ -67,14 +66,14 @@ export function BooksPage() {
                       <header className="flex items-center justify-between p-4">
                         <span className="text-sm text-gray-700">
                           {" "}
-                          0 Selected{" "}
+                          0 Seleccionado{" "}
                         </span>
 
                         <button
                           type="button"
                           className="text-sm text-gray-900 underline underline-offset-4"
                         >
-                          Reset
+                          Reiniciar
                         </button>
                       </header>
 
@@ -91,7 +90,7 @@ export function BooksPage() {
                             />
 
                             <span className="text-sm font-medium text-gray-700">
-                              In Stock (5+)
+                              En Stock (5+)
                             </span>
                           </label>
                         </li>
@@ -108,7 +107,7 @@ export function BooksPage() {
                             />
 
                             <span className="text-sm font-medium text-gray-700">
-                              Pre Order (3+)
+                              Pedidos (3+)
                             </span>
                           </label>
                         </li>
@@ -125,7 +124,7 @@ export function BooksPage() {
                             />
 
                             <span className="text-sm font-medium text-gray-700">
-                              Out of Stock (10+)
+                              Fuera de Stock (10+)
                             </span>
                           </label>
                         </li>
@@ -138,7 +137,7 @@ export function BooksPage() {
               <div className="relative">
                 <details className="group [&_summary::-webkit-details-marker]:hidden">
                   <summary className="flex cursor-pointer items-center gap-2 border-b border-gray-400 pb-1 text-gray-900 transition hover:border-gray-600">
-                    <span className="text-sm font-medium"> Price </span>
+                    <span className="text-sm font-medium"> Precio </span>
 
                     <span className="transition group-open:-rotate-180">
                       <svg
@@ -162,14 +161,14 @@ export function BooksPage() {
                     <div className="w-96 rounded border border-gray-200 bg-white">
                       <header className="flex items-center justify-between p-4">
                         <span className="text-sm text-gray-700">
-                          The highest price is $600
+                          Puede darle un precio aproximado
                         </span>
 
                         <button
                           type="button"
                           className="text-sm text-gray-900 underline underline-offset-4"
                         >
-                          Reset
+                          Reiniciar
                         </button>
                       </header>
 
@@ -184,7 +183,7 @@ export function BooksPage() {
                             <input
                               type="number"
                               id="FilterPriceFrom"
-                              placeholder="From"
+                              placeholder="Desde"
                               className="w-full rounded-md border-gray-200 shadow-sm sm:text-sm"
                             />
                           </label>
@@ -198,7 +197,7 @@ export function BooksPage() {
                             <input
                               type="number"
                               id="FilterPriceTo"
-                              placeholder="To"
+                              placeholder="Hasta"
                               className="w-full rounded-md border-gray-200 shadow-sm sm:text-sm"
                             />
                           </label>
@@ -212,18 +211,18 @@ export function BooksPage() {
 
             <div className="hidden sm:block">
               <label htmlFor="SortBy" className="sr-only">
-                SortBy
+                Ordenar por
               </label>
 
               <select
                 id="SortBy"
                 className="h-10 rounded border-gray-300 text-sm"
               >
-                <option>Sort By</option>
-                <option value="Title, DESC">Title, DESC</option>
-                <option value="Title, ASC">Title, ASC</option>
-                <option value="Price, DESC">Price, DESC</option>
-                <option value="Price, ASC">Price, ASC</option>
+                <option>Ordenar por</option>
+                <option value="Title, DESC">Titulo, DESC</option>
+                <option value="Title, ASC">Titulo, ASC</option>
+                <option value="Price, DESC">Precio, DESC</option>
+                <option value="Price, ASC">Precio, ASC</option>
               </select>
             </div>
           </div>

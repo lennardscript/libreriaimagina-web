@@ -29,12 +29,12 @@ export function NavbarUser() {
             <div className="flex items-center">
               <div className="flex items-center divide-x divide-gray-100 border-x border-gray-100">
               <span className="hidden sm:block">
-                  <a
-                    href="/"
+                  <Link
+                    to="/cart"
                     className="block border-b-4 border-transparent p-6 hover:border-red-700"
                   >
                     <BiCart className="h-4 w-4" />
-                  </a>
+                  </Link>
                 </span>
                   <MenuUser />
                 

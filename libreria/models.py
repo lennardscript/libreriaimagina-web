@@ -10,6 +10,7 @@ from django.db import models
     def __str__(self):
       return self.name """
 class Book(models.Model):
+    id_book = models.AutoField(primary_key=True)
     title = models.CharField(max_length=250)
     description = models.TextField(blank=True, null=True)
     price = models.BigIntegerField(blank=True, null=True)

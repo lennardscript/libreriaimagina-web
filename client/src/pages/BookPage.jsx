@@ -1,6 +1,6 @@
 import { Footer, Navbar } from "../components";
 
-export function BookPage() {
+export function BookPage({ bookId }) {
   return (
     <>
       <Navbar />
@@ -10,7 +10,7 @@ export function BookPage() {
             <div className="grid grid-cols-2 gap-4 md:grid-cols-1">
               <img
                 alt="Book Image"
-                src="/img/libro-aristoteles.png"
+                src={bookId.thumbnail}
                 className="aspect-square w-full rounded-xl object-cover"
               />
             </div>
@@ -40,24 +40,21 @@ export function BookPage() {
               <div className="mt-8 flex justify-between">
                 <div className="max-w-[35ch] space-y-2">
                   <h1 className="text-xl font-bold sm:text-2xl">
-                    Ética a Nicómaco
+                    {bookId.title}
                   </h1>
 
                   <div className="-ml-0.5 flex text-gray-500">
-                    Aristoteles
+                    Autor
                   </div>
                 </div>
 
-                <p className="text-lg font-bold">$25.000</p>
+                <p className="text-lg font-bold">${bookId.price}</p>
               </div>
 
               <div className="mt-4">
                 <div className="prose max-w-none">
                   <p>
-                    Ética nicomáquea o Ética a Nicómaco es el nombre dado a la
-                    obra más conocida de Aristóteles sobre ética, escrita en el
-                    siglo IV a. C. Se trata de uno de los primeros tratados
-                    conservados sobre ética y moral de la filosofía occidental.
+                    {bookId.description}
                   </p>
                 </div>
               </div>
