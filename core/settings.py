@@ -34,7 +34,6 @@ INSTALLED_APPS = [
 
     'libreria',
     'users',
-    'shopping_cart',
 ]
 
 MIDDLEWARE = [

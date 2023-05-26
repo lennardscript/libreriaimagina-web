@@ -1,9 +1,19 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { HomePage, BooksPage, BookPage, LoginPage, SignupPage, UserAuthPage, CartPage } from "./pages/";
+import {
+  HomePage,
+  BooksPage,
+  BookPage,
+  LoginPage,
+  SignupPage,
+  UserAuthPage,
+  CartPage,
+} from "./pages/";
+import { CartProvider } from "./components/context/cart";
 
 function App() {
   return (
-    <BrowserRouter>
+    <CartProvider>
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/books" element={<BooksPage />} />
@@ -13,7 +23,8 @@ function App() {
           <Route path="/userauth" element={<UserAuthPage />} />
           <Route path="/cart" element={<CartPage />} />
         </Routes>
-    </BrowserRouter>
+      </BrowserRouter>
+    </CartProvider>
   );
 }
 

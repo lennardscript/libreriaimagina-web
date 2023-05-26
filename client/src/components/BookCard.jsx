@@ -1,7 +1,10 @@
 import { BiBookmarkHeart } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import { useCart } from "./hooks/useCart";
 
 export function BookCard({ book }) {
+
+  const { addToCart } = useCart()
 
   return (
     <>
@@ -27,7 +30,7 @@ export function BookCard({ book }) {
           </h3>
 
           <p className="mt-1.5 text-sm text-gray-700 p-1">${book.price}</p>
-            <button
+            <button onClick={() => addToCart(book)}
               className="group relative inline-block focus:outline-none focus:ring">
               <span className="absolute inset-0 translate-x-0 translate-y-0 bg-red-500 transition-transform group-hover:translate-y-1.5 group-hover:translate-x-1.5"></span>
 
