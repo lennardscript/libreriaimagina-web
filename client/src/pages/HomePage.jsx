@@ -61,12 +61,6 @@ export function HomePage() {
                 <button className="absolute right-4 top-4 z-10 rounded-full bg-white p-1.5 text-gray-900 transition hover:text-gray-900/75">
                   <BiBookmarkHeart />
                 </button>
-
-                {/* <img
-                  src="/img/libro-aristoteles.png"
-                  alt=""
-                  className="h-64 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72"
-                /> */}
                 </a>
 
                 <div className="relative border border-gray-100 bg-white p-6">
@@ -95,18 +89,13 @@ export function HomePage() {
 
             <li>
               <a
-                href="/templates/book.html"
+                href="#"
                 className="group relative block overflow-hidden"
               >
                 <button className="absolute right-4 top-4 z-10 rounded-full bg-white p-1.5 text-gray-900 transition hover:text-gray-900/75">
                   <BiBookmarkHeart />
                 </button>
 
-                {/* <img
-                  src="/img/franzkafka.png"
-                  alt=""
-                  className="h-64 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72"
-                /> */}
                 </a>
 
                 <div className="relative border border-gray-100 bg-white p-6">
@@ -123,7 +112,7 @@ export function HomePage() {
                   <form className="mt-4">
                     <a
                       className="group relative text-sm font-medium inline-block focus:outline-none focus:ring"
-                      href="/templates/cart.html"
+                      href="#"
                     >
                       <span className="absolute inset-0 translate-x-0 translate-y-0 bg-red-500 transition-transform group-hover:translate-y-1.5 group-hover:translate-x-1.5"></span>
 
@@ -138,18 +127,13 @@ export function HomePage() {
 
             <li>
               <a
-                href="/templates/book.html"
+                href="#"
                 className="group relative block overflow-hidden"
               >
                 <button className="absolute right-4 top-4 z-10 rounded-full bg-white p-1.5 text-gray-900 transition hover:text-gray-900/75">
                   <BiBookmarkHeart />
                 </button>
 
-                {/* <img
-                  src="/img/platon.png"
-                  alt=""
-                  className="h-64 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72"
-                /> */}
                 </a>
 
                 <div className="relative border border-gray-100 bg-white p-6">
@@ -166,7 +150,7 @@ export function HomePage() {
                   <form className="mt-4">
                     <a
                       className="group relative text-sm font-medium inline-block focus:outline-none focus:ring"
-                      href="/templates/cart.html"
+                      href="#"
                     >
                       <span className="absolute inset-0 translate-x-0 translate-y-0 bg-red-500 transition-transform group-hover:translate-y-1.5 group-hover:translate-x-1.5"></span>
 
