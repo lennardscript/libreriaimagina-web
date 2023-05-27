@@ -2,15 +2,6 @@ import { useReducer, createContext } from "react";
 import { cartReducer, cartInitialState } from "../reducers/cart";
 
 export const CartContext = createContext();
-
-/* Testear el reducer que funcione para añadir un producto al carrito
-
-expect(
-  reducer([], { type: 'ADD_TO_CART', payload: { id: 1 })
-).toEqual([{ id: 1, quantity: 1 }])
-
-*/
-
 function useCartReducer() {
 
   const [state, dispatch] = useReducer(cartReducer, cartInitialState)
@@ -26,9 +17,17 @@ function useCartReducer() {
   })
 
   const clearCart = () => dispatch({ type: 'CLEAR_CART'})
-
   return { state, addToCart, removeFromCart, clearCart }
+
 }
+
+/* Testear el reducer que funcione para añadir un producto al carrito
+
+expect(
+  reducer([], { type: 'ADD_TO_CART', payload: { id: 1 })
+).toEqual([{ id: 1, quantity: 1 }])
+
+*/
 
 export function CartProvider({ children }) {
 

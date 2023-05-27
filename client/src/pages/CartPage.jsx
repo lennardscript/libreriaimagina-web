@@ -9,65 +9,67 @@ function CartItem({ title, price, thumbnail, quantity, addToCart }) {
   const { removeFromCart } = useCart();
 
   return (
+    <li className="flex items-center gap-4">
+      <img
+        src={thumbnail}
+        alt={title}
+        className="h-16 w-16 rounded object-cover"
+      />
 
-      <li className="flex items-center gap-4">
-        <img
-          src={thumbnail}
-          alt={title}
-          className="h-16 w-16 rounded object-cover"
-        />
+      <div>
+        <strong className="text-sm text-gray-900">{title}</strong>
 
-        <div>
-          <strong className="text-sm text-gray-900">{title}</strong>
-
-          <dl className="mt-0.5 space-y-px text-[10px] text-gray-600">
-            <div>
-              <dt className="inline">Precio: ${price}</dt>
-            </div>
-          </dl>
-        </div>
-
-        <div className="flex flex-1 items-center justify-end gap-2">
+        <dl className="mt-0.5 space-y-px text-[10px] text-gray-600">
           <div>
-            <div>
-              <label htmlFor={cartCheckboxId} className="sr-only">
-                {" "}
-                Quantity{" "}
-              </label>
+            <dt className="inline">Precio: ${price}</dt>
+          </div>
+        </dl>
+      </div>
 
-              <div className="flex items-center gap-1">
-                <input
-                  type="number"
-                  id="cartCheckboxId"
-                  value={quantity}
-                  className="h-10 w-16 rounded border-gray-200 text-center [-moz-appearance:_textfield] sm:text-sm [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none"
-                />
+      <div className="flex flex-1 items-center justify-end gap-2">
+        <div>
+          <div>
+            <label htmlFor={cartCheckboxId} className="sr-only">
+              {" "}
+              Quantity{" "}
+            </label>
 
-                <button
-                  onClick={addToCart}
-                  type="button"
-                  className="w-10 h-10 leading-10 text-gray-600 transition hover:opacity-75"
-                >
-                  <BiCartAdd />
-                </button>
-              </div>
+            <div className="flex items-center gap-1">
+              <input
+                type="number"
+                id="cartCheckboxId"
+                value={quantity}
+                className="h-10 w-16 rounded border-gray-200 text-center [-moz-appearance:_textfield] sm:text-sm [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none"
+              />
+
+              <button
+                onClick={addToCart}
+                type="button"
+                className="w-10 h-10 leading-10 text-gray-600 transition hover:opacity-75"
+              >
+                <BiCartAdd />
+              </button>
             </div>
           </div>
-
-          <button
-            onClick={removeFromCart}
-            className="text-gray-600 transition hover:text-red-600"
-          >
-            <span className="sr-only">Remove Book</span>
-            <BiTrash className="h-4 w-4" />
-          </button>
         </div>
-      </li>
+
+        <button
+          onClick={removeFromCart}
+          className="text-gray-600 transition hover:text-red-600"
+        >
+          <span className="sr-only">Remove Book</span>
+          <BiTrash className="h-4 w-4" />
+        </button>
+      </div>
+    </li>
   );
 }
 export function CartPage() {
-
   const { cart, addToCart } = useCart();
+
+  const total = cart.reduce((acc, item) => {
+    return acc + item.price * item.quantity;
+  }, 0);
 
   return (
     <>
@@ -81,22 +83,23 @@ export function CartPage() {
               </h1>
             </div>
 
-              <ul className="space-y-4">
-                {cart.map(book => (
-                  <CartItem
+            <ul className="space-y-4">
+              {cart.map((book) => (
+                <CartItem
                   key={book.id}
                   addToCart={() => addToCart(book)}
-                  {...book} />
-                ))}
-              </ul>
+                  {...book}
+                />
+              ))}
+            </ul>
 
             <div className="mt-8">
               <div className="mt-8 flex justify-end border-t border-gray-100 pt-8">
                 <div className="w-screen max-w-lg space-y-4">
                   <dl className="space-y-0.5 text-sm text-gray-700">
                     <div className="flex justify-end !text-base font-medium">
-                      <dt className="px-1">Total</dt>
-                      <dd>$</dd>
+                      <dt className="px-1">Total:</dt>
+                      <dd>${total}</dd>
                     </div>
                   </dl>
 
