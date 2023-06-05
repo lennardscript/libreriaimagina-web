@@ -1,14 +1,5 @@
 from django.db import models
 
-""" class Editorial(models.Model):
-    name = models.CharField(max_length=255)
-
-    class Meta:
-      ordering = ('name',)
-      verbose_name_plural = 'Editoriales'
-
-    def __str__(self):
-      return self.name """
 class Book(models.Model):
     id_book = models.AutoField(primary_key=True)
     title = models.CharField(max_length=250)
@@ -24,4 +15,7 @@ class Book(models.Model):
 
     def __str__(self):
       return self.title
-  
+    
+class Comuna(models.Model):
+   id_comuna = models.AutoField(primary_key=True)
+   nombre_comuna = models.CharField(max_length=250)

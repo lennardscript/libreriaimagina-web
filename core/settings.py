@@ -47,6 +47,16 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+# Stripe
+STRIPE_SECRET_KEY = 'sk_test_51NBOIJCeQW5ezUxdlgoeSksHNZRnAWzOWClswpKoUAPhCmDOrsjpJWD40VM2YRfmTMlzbf1StxdsvPO7nEfRVy1u00p09nV3lP'
+STRIPE_WEBHOOK_SECRET = 'whsec_a699f0fd81ea4cbdf779e421cafac9f95ca39b2da1557eb8bcb3aca61da5912a'
+
+SITE_URL='http://localhost:5173/'
+
+# Frontend urls
+CHECKOUT_SUCCESS_URL = 'http://localhost:5173/checkout/success/'
+CHECKOUT_FAILED_URL = 'http://localhost:5173/checkout/failed/'
+
 ROOT_URLCONF = 'core.urls'
 
 TEMPLATES = [
@@ -71,25 +81,25 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-"""
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.oracle',
-        'NAME': 'nombre_de_la_base_de_datos',
-        'USER': 'nombre_de_usuario',
-        'PASSWORD': 'contraseña',
-        'HOST': 'nombre_del_host',
-        'PORT': 'puerto',
+        'NAME': 'libreriaimagina_db',
+        'USER': 'libreriaimagina_db',
+        'PASSWORD': 'libreriaimagina_db',
+        'HOST': '',
+        'PORT': '1521',
     }
 }
-"""
 
-DATABASES = {
+
+""" DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
-}
+} """
 
 
 
@@ -140,20 +150,14 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Cors Authorization
-CORS_ALLOWED_ORIGINS = ["http://localhost:5173", "https://api-alphilia.onrender.com"]
+CORS_ALLOWED_ORIGINS = ["http://localhost:5173"]
 
 CORS_ALLOW_ALL_ORIGINS = True
 
-CORS_ORIGIN_WHITELIST = (
-    'https://api-alphilia.onrender.com'
-)
-
-# Cookies settings
-CSRF_COOKIE_SECURE = True
-CSRF_COOKIE_DOMAIN = 'https://api-alphilia.onrender.com'
-SESSION_COOKIE_DOMAIN = 'https://api-alphilia.onrender.com'
-
 REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny'
+    ],
     'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',

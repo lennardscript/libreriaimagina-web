@@ -8,8 +8,8 @@ function CartItem({ title, price, thumbnail, quantity, addToCart }) {
 
   const { removeFromCart } = useCart();
 
-  return (
-    <li className="flex items-center gap-4">
+  return [
+    <li className="flex items-center gap-4" key={cartCheckboxId}>
       <img
         src={thumbnail}
         alt={title}
@@ -61,15 +61,58 @@ function CartItem({ title, price, thumbnail, quantity, addToCart }) {
           <BiTrash className="h-4 w-4" />
         </button>
       </div>
-    </li>
-  );
+    </li>,
+  ];
 }
+
 export function CartPage() {
   const { cart, addToCart } = useCart();
 
   const total = cart.reduce((acc, item) => {
     return acc + item.price * item.quantity;
   }, 0);
+
+  /* Realizar solicitudes POST a la API de Stripe */
+  const checkout = () => {
+    const CartArray = [CartItem]
+
+    if (!Array.isArray(CartArray)) {
+      console.log("not an array");
+      return;
+    }
+
+    const lineItems = CartArray.map((item) => {
+      return {
+        price_data: {
+          currency: 'clp',
+          product_data: {
+            name: item.name,
+          },
+          unit_amount: item.price,
+        },
+        quantity: item.quantity,
+      }
+    })
+
+    fetch("http://localhost:3500/create-checkout-session", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      model: "cors",
+      body: JSON.stringify({
+        items: lineItems,
+      }),
+    })
+      .then((res) => {
+        if (res.ok) return res.json();
+        return res.json().then((json) => Promise.reject(json));
+      })
+      .then(({ url }) => {
+        window.location = url;
+      })
+      .catch((e) => {
+        console.log(e.error);
+      });
+  };
 
   return (
     <>
@@ -83,15 +126,15 @@ export function CartPage() {
               </h1>
             </div>
 
-            <ul className="space-y-4">
-              {cart.map((book) => (
-                <CartItem
-                  key={book.id}
-                  addToCart={() => addToCart(book)}
-                  {...book}
-                />
-              ))}
-            </ul>
+              <ul className="space-y-4">
+                {cart.map((book) => (
+                  <CartItem
+                    key={book.id}
+                    addToCart={() => addToCart(book)}
+                    {...book}
+                  />
+                ))}
+              </ul>
 
             <div className="mt-8">
               <div className="mt-8 flex justify-end border-t border-gray-100 pt-8">
@@ -104,7 +147,11 @@ export function CartPage() {
                   </dl>
 
                   <div className="flex justify-end">
-                    <button className="block py-5 px-25 text-sm font-medium">
+                    <button
+                      onClick={checkout}
+                      type="submit"
+                      className="block py-5 px-25 text-sm font-medium"
+                    >
                       <span className="group relative inline-block focus:outline-none focus:ring">
                         <span className="absolute inset-0 translate-x-0 translate-y-0 bg-red-500 transition-transform group-hover:translate-y-1.5 group-hover:translate-x-1.5"></span>
                         <span className="relative inline-block border-2 border-current px-8 py-3 text-sm font-bold uppercase tracking-widest">

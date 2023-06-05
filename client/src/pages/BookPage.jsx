@@ -1,6 +1,6 @@
 import { Footer, Navbar } from "../components";
 
-export function BookPage({ bookId }) {
+export function BookPage({ book }) {
   return (
     <>
       <Navbar />
@@ -10,7 +10,7 @@ export function BookPage({ bookId }) {
             <div className="grid grid-cols-2 gap-4 md:grid-cols-1">
               <img
                 alt="Book Image"
-                src={bookId.thumbnail}
+                src={book.thumbnail}
                 className="aspect-square w-full rounded-xl object-cover"
               />
             </div>
@@ -40,7 +40,7 @@ export function BookPage({ bookId }) {
               <div className="mt-8 flex justify-between">
                 <div className="max-w-[35ch] space-y-2">
                   <h1 className="text-xl font-bold sm:text-2xl">
-                    {bookId.title}
+                    {book.title}
                   </h1>
 
                   <div className="-ml-0.5 flex text-gray-500">
@@ -48,13 +48,13 @@ export function BookPage({ bookId }) {
                   </div>
                 </div>
 
-                <p className="text-lg font-bold">${bookId.price}</p>
+                <p className="text-lg font-bold">${book.price}</p>
               </div>
 
               <div className="mt-4">
                 <div className="prose max-w-none">
                   <p>
-                    {bookId.description}
+                    {book.description}
                   </p>
                 </div>
               </div>
