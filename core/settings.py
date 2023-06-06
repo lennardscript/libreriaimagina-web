@@ -85,10 +85,10 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.oracle',
-        'NAME': 'libreriaimagina_db',
+        'NAME': 'XE',
         'USER': 'libreriaimagina_db',
         'PASSWORD': 'libreriaimagina_db',
-        'HOST': '',
+        'HOST': 'localhost',
         'PORT': '1521',
     }
 }
