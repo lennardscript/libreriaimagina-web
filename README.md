@@ -35,7 +35,7 @@ El propio proyecto en Django tiene todos sus modulos instalados, así que no hay
 
 ## API de Librería Imagina
 
-Como el caso pide como requerimiento una API independiente del proyecto, en nuestro caso para acelerar el desarrollo y no tener muchas complicaciones, la API de Librería Imagina se ha **[dockerizado](https://www.docker.com/)** para asi facilitar el despliegue de ella.
+En nuestro caso pide se ha desarrollado una API que enlistara sus propios libros, para acelerar el desarrollo y no tener muchas complicaciones, la API de Librería Imagina se ha **[dockerizado](https://www.docker.com/)** para asi facilitar el despliegue de ella.
 
 El **[repositorio](https://github.com/lennardscript/api-alphilia)** de la API se encuentra disponible.
 
