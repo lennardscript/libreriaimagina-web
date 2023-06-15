@@ -33,7 +33,7 @@ pip install pipenv
 El propio proyecto en Django tiene todos sus modulos instalados, así que no hay que instalarlos nuevamente ya que todo viene integrado (en modo de desarrollo) en su archivo
 ``Pipfile``
 
-## API de Alphilia
+## API de Librería Imagina
 
 Como el caso pide como requerimiento una API independiente del proyecto, en nuestro caso para acelerar el desarrollo y no tener muchas complicaciones, la API de Alphilia se ha **[dockerizado](https://www.docker.com/)** para asi facilitar el despliegue de ella.
 
